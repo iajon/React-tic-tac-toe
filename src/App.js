@@ -1,10 +1,14 @@
-import {Box, Text} from '@primer/components'
+import {Box, Pagehead} from '@primer/components'
 import {ThemeProvider} from '@primer/components'
-import '@primer/components'
+//import '@primer/components'
 
-import NameHeader from './components/nameHeader/NameHeader'
+import NameLabel from './components/nameLabel/NameLabel'
 import NameInput from './components/nameInput/NameInput'
 import SubmitButton from './components/submitButton/SubmitButton'
+import AppTitle from './components/appTitle/AppTitle'
+import GridBox from './components/gridBox/GridBox'
+import ControlLabel from './components/controlLabel/ControlLabel'
+import ResetButton from './components/resetButton/ResetButton'
 
 
 import './App.css';
@@ -31,21 +35,55 @@ function App() {
              borderStyle="solid" 
              borderRadius="10px" 
              margin="10px">
-          <Box display="grid" 
-               gridTemplateColumns="1fr" 
-               borderColor="border.primary" 
-               borderWidth={1}
-               borderStyle="solid"
-               borderRadius="10px"
-               margin="10px"
-               padding="10px"
-               width="200px">
-            <Text fontWeight="bold" fontSize="14px" textAlign="left" marginBottom="10px">Player 1</Text>
-            <NameInput updateValue={setP1Name}/>
-            <Text fontWeight="bold" fontSize="14px" textAlign="left" marginBottom="10px">Player 2</Text>
-            <NameInput updateValue={setP2Name}/>
-          <SubmitButton submitValue={submitNames}/>
           
+          {/*---Title Frame---*/}
+          <Box display="grid" 
+            gridTemplateColumns="1fr" 
+            borderColor="border.primary" 
+            borderWidth={1}
+            borderStyle="solid"
+            borderRadius="10px"
+            margin="10px"
+            padding="10px"
+            width="200px"
+            boxShadow="0px 0px 12px 0px rgba(0, 0, 0, .1)">
+              <AppTitle/>
+          </Box>
+
+          {/*---Name Submission Frame---*/}
+          <Box display="grid" 
+            gridTemplateColumns="1fr" 
+            borderColor="border.primary" 
+            borderWidth={1}
+            borderStyle="solid"
+            borderRadius="10px"
+            margin="10px"
+            padding="10px"
+            width="200px"
+            boxShadow="0px 0px 12px 0px rgba(0, 0, 0, .1)">
+
+            <NameLabel text='Player 1'/>
+            <NameInput updateValue={setP1Name}/>
+
+            <NameLabel text='Player 2'/>
+            <NameInput updateValue={setP2Name}/>
+
+            <SubmitButton submitValue={submitNames}/>
+          </Box>
+
+          {/*---Game Controls Frame---*/}
+          <Box display="grid" 
+            gridTemplateColumns="1fr" 
+            borderColor="border.primary" 
+            borderWidth={1}
+            borderStyle="solid"
+            borderRadius="10px"
+            margin="10px"
+            padding="10px"
+            width="200px"
+            boxShadow="0px 0px 12px 0px rgba(0, 0, 0, .1)">
+              <ControlLabel/>
+              <ResetButton/>
           </Box>
         </Box> 
       </div>
